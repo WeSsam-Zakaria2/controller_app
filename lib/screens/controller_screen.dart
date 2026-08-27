@@ -10,28 +10,23 @@ class ControllerScreen extends StatefulWidget {
 }
 
 class _ControllerScreenState extends State<ControllerScreen> {
-  Widget buildDiamondButton(IconData icon) {
+  Widget buildCircleButton(IconData icon) {
     return GestureDetector(
-      child: Transform.rotate(
-        angle: math.pi / 4,
-        child: Container(
-          width: 60,
-          height: 60,
-          decoration: BoxDecoration(
-            color: Color(0xFF172946),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Transform.rotate(
-            angle: -math.pi / 4,
-            child: Center(
-              child: Icon(
-                icon,
-                size: 25,
-                fontWeight: FontWeight.normal,
+      child: Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+          color: Color(0xFF172946),
+          shape: BoxShape.circle,
+        ),
 
-                color: Color(0xFFFFFFFF),
-              ),
-            ),
+        child: Center(
+          child: Icon(
+            icon,
+            size: 25,
+            fontWeight: FontWeight.normal,
+
+            color: Color(0xFFFFFFFF),
           ),
         ),
       ),
@@ -59,15 +54,13 @@ class _ControllerScreenState extends State<ControllerScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    buildDiamondButton(Icons.keyboard_double_arrow_up_rounded),
+                    buildCircleButton(Icons.keyboard_double_arrow_up_rounded),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    buildDiamondButton(
-                      Icons.keyboard_double_arrow_left_rounded,
-                    ),
+                    buildCircleButton(Icons.keyboard_double_arrow_left_rounded),
                     Image.asset(
                       'assets/images/car.png',
                       width: 319,
