@@ -9,18 +9,19 @@ class ControllerScreen extends StatefulWidget {
 }
 
 class _ControllerScreenState extends State<ControllerScreen> {
-  final DatabaseReference _databaseRef = FirebseDatabase.instance.ref(
+  final DatabaseReference _databaseRef = FirebaseDatabase.instance.ref(
     "command",
   );
 
-  void _sendCommand(String command){
+  void _sendCommand(String command) {
     _databaseRef.set(command);
   }
-  Widget buildSquareButton(IconData icon,String command) {
+
+  Widget buildSquareButton(IconData icon, String command) {
     return GestureDetector(
-      onTapDown:()=>_sendCommand(command),
-      onTapUp:()=>_sendCommand("S"),
-      onTapCancel:()=>_sendCommand("S"),  
+      onTapDown: () => _sendCommand(command),
+      onTapUp: () => _sendCommand("S"),
+      onTapCancel: () => _sendCommand("S"),
       child: Container(
         width: 60,
         height: 60,
@@ -68,11 +69,11 @@ class _ControllerScreenState extends State<ControllerScreen> {
                       children: [
                         buildSquareButton(
                           Icons.keyboard_double_arrow_left_outlined,
-                          "L"
+                          "L",
                         ),
                         buildSquareButton(
                           Icons.keyboard_double_arrow_right_outlined,
-                          "R"
+                          "R",
                         ),
                       ],
                     ),
@@ -86,12 +87,12 @@ class _ControllerScreenState extends State<ControllerScreen> {
                       children: [
                         buildSquareButton(
                           Icons.keyboard_double_arrow_up_outlined,
-                          "U"
+                          "U",
                         ),
 
                         buildSquareButton(
                           Icons.keyboard_double_arrow_down_outlined,
-                         "D"
+                          "D",
                         ),
                       ],
                     ),
