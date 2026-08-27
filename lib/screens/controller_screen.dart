@@ -19,8 +19,8 @@ class _ControllerScreenState extends State<ControllerScreen> {
 
   Widget buildSquareButton(IconData icon, String command) {
     return GestureDetector(
-      onTapDown: () => _sendCommand(command),
-      onTapUp: () => _sendCommand("S"),
+      onTapDown: (_) => _sendCommand(command),
+      onTapUp: (_) => _sendCommand("S"),
       onTapCancel: () => _sendCommand("S"),
       child: Container(
         width: 60,
