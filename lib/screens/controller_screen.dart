@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class ControllerScreen extends StatefulWidget {
@@ -8,8 +9,18 @@ class ControllerScreen extends StatefulWidget {
 }
 
 class _ControllerScreenState extends State<ControllerScreen> {
-  Widget buildSquareButton(IconData icon) {
+  final DatabaseReference _databaseRef = FirebseDatabase.instance.ref(
+    "command",
+  );
+
+  void _sendCommand(String command){
+    _databaseRef.set(command);
+  }
+  Widget buildSquareButton(IconData icon,String command) {
     return GestureDetector(
+      onTapDown:()=>_sendCommand(command),
+      onTapUp:()=>_sendCommand("S"),
+      onTapCancel:()=>_sendCommand("S"),  
       child: Container(
         width: 60,
         height: 60,
@@ -57,26 +68,30 @@ class _ControllerScreenState extends State<ControllerScreen> {
                       children: [
                         buildSquareButton(
                           Icons.keyboard_double_arrow_left_outlined,
+                          "L"
                         ),
                         buildSquareButton(
                           Icons.keyboard_double_arrow_right_outlined,
+                          "R"
                         ),
                       ],
                     ),
                     Image.asset(
                       'assets/images/rec_photo.png',
-                      width: 350,
-                      height: 200,
+                      width: 300,
+                      height: 150,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         buildSquareButton(
                           Icons.keyboard_double_arrow_up_outlined,
+                          "U"
                         ),
 
                         buildSquareButton(
                           Icons.keyboard_double_arrow_down_outlined,
+                         "D"
                         ),
                       ],
                     ),
