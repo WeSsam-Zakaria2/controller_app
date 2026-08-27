@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 class ControllerScreen extends StatefulWidget {
@@ -10,14 +8,14 @@ class ControllerScreen extends StatefulWidget {
 }
 
 class _ControllerScreenState extends State<ControllerScreen> {
-  Widget buildCircleButton(IconData icon) {
+  Widget buildSquareButton(IconData icon) {
     return GestureDetector(
       child: Container(
         width: 60,
         height: 60,
         decoration: BoxDecoration(
           color: Color(0xFF172946),
-          shape: BoxShape.circle,
+          borderRadius: BorderRadius.circular(8),
         ),
 
         child: Center(
@@ -41,10 +39,10 @@ class _ControllerScreenState extends State<ControllerScreen> {
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  'CONTROLLER',
+                  'CAR CONTROLLER',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -54,29 +52,33 @@ class _ControllerScreenState extends State<ControllerScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    buildCircleButton(Icons.keyboard_double_arrow_up_rounded),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    buildCircleButton(Icons.keyboard_double_arrow_left_rounded),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        buildSquareButton(
+                          Icons.keyboard_double_arrow_left_outlined,
+                        ),
+                        buildSquareButton(
+                          Icons.keyboard_double_arrow_right_outlined,
+                        ),
+                      ],
+                    ),
                     Image.asset(
-                      'assets/images/car.png',
-                      width: 319,
-                      height: 150,
+                      'assets/images/rec_photo.png',
+                      width: 350,
+                      height: 200,
                     ),
-                    buildDiamondButton(
-                      Icons.keyboard_double_arrow_right_rounded,
-                    ),
-                  ],
-                ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        buildSquareButton(
+                          Icons.keyboard_double_arrow_up_outlined,
+                        ),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    buildDiamondButton(
-                      Icons.keyboard_double_arrow_down_rounded,
+                        buildSquareButton(
+                          Icons.keyboard_double_arrow_down_outlined,
+                        ),
+                      ],
                     ),
                   ],
                 ),
