@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "440508708423",
+    "project_id": "controller-24dd3",
+    "storage_bucket": "controller-24dd3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440508708423:android:171510e7f8f5b9792b2362",
+        "android_client_info": {
+          "package_name": "com.example.controller_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADyrYmnM2VUj5Qcqfls9c9lKsPU7FpsdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
